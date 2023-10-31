@@ -17,7 +17,8 @@ public class StudentOrderValidator {
 
             AnswerCityRegister cityAnswer = checkCityRegister(so);
             if(!cityAnswer.success){
-                continue;
+//                continue;
+                break;
             }
             AnswerWedding wedAnswer = checkWedding(so);
             AnswerChildren childAnswer = checkChildren(so);
@@ -34,17 +35,22 @@ public class StudentOrderValidator {
 
     static StudentOrder readStudentOrder(){
         StudentOrder so = new StudentOrder();
-        return null;
+        return so;
     }
 
     static AnswerCityRegister checkCityRegister(StudentOrder so){
-        System.out.println("City Register is running" );
-        AnswerCityRegister ans = new AnswerCityRegister();
-        ans.success = false;
-        return ans;
+        CityRegisterValidator crv1 =new CityRegisterValidator();
+        crv1.hostName = "Host1";
+        CityRegisterValidator crv2 =new CityRegisterValidator();
+        crv1.hostName = "Host2";
+        AnswerCityRegister ans1 = crv1.checkCityRegister(so);
+        AnswerCityRegister ans2 = crv2.checkCityRegister(so);
+        return ans1;
 
 
     }
+
+
 
     static AnswerWedding checkWedding (StudentOrder so) {
         System.out.println("Wedding запущен");
