@@ -1,3 +1,9 @@
+package edu.javacourse.studentorder;
+
+import edu.javacourse.studentorder.domain.*;
+import edu.javacourse.studentorder.mail.MailSender;
+import edu.javacourse.studentorder.validator.*;
+
 import java.sql.SQLOutput;
 
 public class StudentOrderValidator {
@@ -52,23 +58,27 @@ public class StudentOrderValidator {
 
 
 
-    static AnswerWedding checkWedding (StudentOrder so) {
-        System.out.println("Wedding запущен");
-        return new AnswerWedding();
+    static AnswerWedding checkWedding (StudentOrder so)
+    {
+        WeddingValidator wd = new WeddingValidator();
+        return wd.checkWedding(so);
 
     }
 
-    static AnswerChildren checkChildren(StudentOrder so){
-        System.out.println("Children Check is running");
-        return new AnswerChildren();
+    static AnswerChildren checkChildren(StudentOrder so)
+    {
+        ChildrenValidator cv = new ChildrenValidator();
+        return cv.checkChildren(so);
     }
 
-    static AnswerStudent checkStudent(StudentOrder so){
-        System.out.println("Студенты проверяются");
-        return new AnswerStudent();
+    static AnswerStudent checkStudent(StudentOrder so)
+    {
+        StudentValidator sv = new StudentValidator();
+        return sv.checkStudent(so);
     }
 
-    static void sendMail(StudentOrder so){
-        System.out.println("Почта отправлена");
+    static void sendMail(StudentOrder so)
+    {
+        new MailSender().sendMail(so);
     }
 }
