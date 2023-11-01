@@ -11,6 +11,10 @@ public class Adult extends Person
     private String university; //учебное заведение
     private String studentId; // Номер студенческого Билета
 
+    public String getAdultString(){
+        return surName + " " + givenName + " " + passportSeria;
+    }
+
     public String getPassportSeria() {
         return passportSeria;
     }
