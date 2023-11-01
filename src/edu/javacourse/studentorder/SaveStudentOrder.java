@@ -22,8 +22,8 @@ public class SaveStudentOrder {
     static StudentOrder buildStudentOrder(){
         StudentOrder so = new StudentOrder();
         Adult husband = new Adult();
-        husband.setGivenName("Андрей");
-        so.setHusband(husband);
+       // husband.setGivenName("Андрей");
+        //so.setHusband(husband);
         return so;
     }
 }
